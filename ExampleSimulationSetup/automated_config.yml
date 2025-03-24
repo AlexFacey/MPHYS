@@ -1,0 +1,56 @@
+Global:
+  outdir: .
+  ldlibdir: /home/mpetersen/lib/user/
+  runtag: run1
+  nsteps: 500000
+  dtime: 1.5e-08
+  multistep: 0
+  dynfracA: 0.01
+  dynfracV: 0.000625
+  VERBOSE: 1
+Components:
+- name: cluster
+  parameters:
+    nlevel: 1
+    indexing: true
+    EJ: 2
+    EJdryrun: false
+    EJkinE: false
+    EJdiag: true
+    nEJkeep: 1
+    nEJwant: 100
+    EJx0: 33.0
+    EJy0: 0.0
+    EJz0: 8.0
+    EJu0: 0.0
+    EJv0: 27005.598041543075
+    EJw0: 9644.856443408242
+  bodyfile: automated_cluster.bods
+  force:
+    id: sphereSL
+    parameters:
+      numr: 4000
+      rmin: 1.0e-06
+      rmax: 10.0
+      Lmax: 2
+      nmax: 12
+      rmapping: 0.01
+      self_consistent: true
+      modelname: automated_cluster.model
+      cachename: automated_cluster.cache
+Output:
+- id: outlog
+  parameters:
+    nint: 1
+- id: outpsn
+  parameters:
+    nint: 2500
+- id: outcoef
+  parameters:
+    nint: 1
+    name: cluster
+External:
+- id: usermw
+  parameters:
+    G: 1.0
+Interaction: {}
